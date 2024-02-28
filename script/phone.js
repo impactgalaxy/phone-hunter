@@ -47,7 +47,7 @@ const searchHandler = (isShowAll) => {
     loadingSpinner(true);
     const searchValue = document.getElementById("searchValue");
 
-    getDataFromServer(searchValue.value || "apple", isShowAll);
+    getDataFromServer(searchValue.value, isShowAll);
 }
 
 const loadingSpinner = (isLoading) => {
@@ -74,10 +74,11 @@ const showDetails = async (id) => {
     const phone = data.data;
     my_modal.showModal();
     const modalDiv = document.createElement("div");
+    modalDiv.classList.add("space-y-4")
     modalDiv.innerHTML = `
     <img src="${phone.image}" class="m-auto block">
-    <h1><span>Model:</span>${phone.name}</h1>
-    <p><span>Specification:</span>${phone.mainFeatures.storage}</p> 
+    <h1><span class="text-xl">Model:</span> ${phone.name}</h1>
+    <p><span>Specification:</span> ${phone.mainFeatures.storage}</p> 
     `;
     pushModal.appendChild(modalDiv);
 }
